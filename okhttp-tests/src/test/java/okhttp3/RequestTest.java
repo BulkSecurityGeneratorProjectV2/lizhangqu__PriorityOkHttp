@@ -19,6 +19,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
+import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.Collections;
 import okhttp3.internal.Util;
@@ -74,7 +75,7 @@ public final class RequestTest {
   }
 
   @Test public void file() throws Exception {
-    File file = File.createTempFile("RequestTest", "tmp");
+    File file = Files.createTempFile("RequestTest", "tmp").toFile();
     FileWriter writer = new FileWriter(file);
     writer.write("abc");
     writer.close();
